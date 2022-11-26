@@ -1,6 +1,7 @@
 #include "cine.h"
 #include "pelicula.h"
 #include "sala.h"
+#include "boleto.h"
 
 Cine::Cine()
 {
@@ -58,7 +59,7 @@ void Cine::mostrarSala()
 
 void Cine::comprarBoletos()
 {
-    int id, num;
+    int id, num, n_bol=0;
     string asiento;
     string posibilidades[] = {"a1","a2","a3","a4","a5","b1","b2","b3","b4","b5","c1","c2","c3","c4","c5","d1","d2","d3","d4","d5","e1","e2","e3","e4","e5","A1","A2","A3","A4","A5","B1","B2","B3","B4","B5","C1","C2","C3","C4","C5","D1","D2","D3","D4","D5","E1","E2","E3","E4","E5"};
     bool compra;
@@ -84,7 +85,13 @@ void Cine::comprarBoletos()
         else
         {
 
+<<<<<<< HEAD
+            cout<<"\nSeleccione los asientos: "<<endl;
+            cout<<"\t= = Asientos = =\n"<<endl;
+            cout<<"   1  2  3  4  5"<<endl;
+=======
             cout<<"Seleccione los asientos: "<<endl;
+>>>>>>> e373d6c03309f27ec37d94bb373003e68e4cf5d0
             sala[id-1].imprimir_asientos();
             for(int i=0; i<num; i++)  
             {
@@ -240,10 +247,27 @@ void Cine::comprarBoletos()
                         {
                             sala[id-1].set_asiento(fila, columna);
                             compra = false;
+<<<<<<< HEAD
+                            boletos[n_bol] = Boleto (id-1, peliculas[id-1], sala[id-1].getfila(fila), sala[id-1].getcolumna(columna));
+                            n_bol++;
+=======
+>>>>>>> e373d6c03309f27ec37d94bb373003e68e4cf5d0
                         }
                     }
                 } while(compra==true);
             }
+            system("cls");
+            cout<<"RESUMEN DE LA COMPRA: \n"<<endl;
+            int x1=2, y1=4, x2=78, y2=11;
+            for(int i=0; i<n_bol; i++)
+            {  
+                    boletos[i].imprimir_boleto(x1, y1, x2, y2);
+                    y1+=11;
+                    y2+=11;
+                    cout<<"\n";
+            }
+            cout<<"Total: $"<<PRECIO_BOLETO*n_bol<<endl;
+            Boleto::num_boleto=1;
         }
     } while(num<0);
 }

@@ -42,6 +42,22 @@ char Sala::getfila(int i)
     return filas[i];
 }
 
+int Sala::getcolumna(int i)
+{
+    int columna;
+    if(i==0)
+        columna=1;
+    else if(i==1)
+        columna=2;
+    else if(i==2)
+        columna = 3;
+    else if(i==3)
+        columna = 4;
+    else
+        columna = 5;
+    return columna;
+}
+
 void Sala::imprimir_asientos()
 {
     string ocupado;

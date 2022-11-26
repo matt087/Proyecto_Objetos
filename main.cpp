@@ -3,6 +3,7 @@
 #include "cine.h"
 using namespace std;
 
+int Boleto::num_boleto=1;
 int main()
 {
     Cine c1;

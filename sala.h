@@ -11,6 +11,7 @@ public:
     bool get_asiento(int, int);
     void set_asiento(int, int);
     char getfila(int);
+    int getcolumna(int);
 
 private:
     int numero;
