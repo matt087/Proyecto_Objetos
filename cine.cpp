@@ -84,14 +84,9 @@ void Cine::comprarBoletos()
             cout<<"ERROR: La cantidad ingresada es incorrecta\n"<<endl;
         else
         {
-
-<<<<<<< HEAD
-            cout<<"\nSeleccione los asientos: "<<endl;
+            cout<<"Seleccione los asientos: "<<endl;
             cout<<"\t= = Asientos = =\n"<<endl;
             cout<<"   1  2  3  4  5"<<endl;
-=======
-            cout<<"Seleccione los asientos: "<<endl;
->>>>>>> e373d6c03309f27ec37d94bb373003e68e4cf5d0
             sala[id-1].imprimir_asientos();
             for(int i=0; i<num; i++)  
             {
@@ -247,11 +242,8 @@ void Cine::comprarBoletos()
                         {
                             sala[id-1].set_asiento(fila, columna);
                             compra = false;
-<<<<<<< HEAD
                             boletos[n_bol] = Boleto (id-1, peliculas[id-1], sala[id-1].getfila(fila), sala[id-1].getcolumna(columna));
                             n_bol++;
-=======
->>>>>>> e373d6c03309f27ec37d94bb373003e68e4cf5d0
                         }
                     }
                 } while(compra==true);
