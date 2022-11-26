@@ -9,6 +9,7 @@ public:
     Sala(int);
     void imprimir_asientos();
     bool get_asiento(int, int);
+    void set_asiento(int, int);
     char getfila(int);
 
 private:
