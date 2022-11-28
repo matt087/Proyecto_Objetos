@@ -6,6 +6,7 @@ CONFIG -= qt
 SOURCES += \
         boleto.cpp \
         cine.cpp \
+        factura.cpp \
         main.cpp \
         pelicula.cpp \
         sala.cpp
@@ -13,5 +14,6 @@ SOURCES += \
 HEADERS += \
     boleto.h \
     cine.h \
+    factura.h \
     pelicula.h \
     sala.h

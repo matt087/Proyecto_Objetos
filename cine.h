@@ -4,6 +4,7 @@
 #include "sala.h"
 #include "pelicula.h"
 #include "boleto.h"
+#include "factura.h"
 
 class Cine
 {
@@ -19,6 +20,7 @@ private:
     Sala sala[5];
     Pelicula peliculas[5];
     Boleto boletos[125];
+    Factura facturas[125];
 };
 
 #endif // CINE_H

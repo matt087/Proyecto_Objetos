@@ -50,8 +50,8 @@ void Cine::mostrarSala()
         if (id<1 || id>5)
             cout<<"ERROR!! El ID es invalido\n"<<endl;
     }while(id<1 || id>5);
-    cout<<peliculas[id-1].getId()<<".- ["<<peliculas[id-1].getHora()<<"] "<<peliculas[id-1].getTitulo()<<" ("<<peliculas[id-1].getDuracion()<<")\n"<<endl;
-    cout<<"\t= = Asientos = =\n"<<endl;
+    cout<<"\n"<<peliculas[id-1].getId()<<".- ["<<peliculas[id-1].getHora()<<"] "<<peliculas[id-1].getTitulo()<<" ("<<peliculas[id-1].getDuracion()<<")"<<endl;
+    cout<<"\t= = Asientos = ="<<endl;
     cout<<"   1  2  3  4  5"<<endl;
     sala[id-1].imprimir_asientos();
 
@@ -59,11 +59,13 @@ void Cine::mostrarSala()
 
 void Cine::comprarBoletos()
 {
-    int id, num, n_bol=0;
+    int id, num, n_bol=0, opc, n_fac=0;
     string asiento;
+    string nombre, cedula, fecha="28/11/2022", telefono;
     string posibilidades[] = {"a1","a2","a3","a4","a5","b1","b2","b3","b4","b5","c1","c2","c3","c4","c5","d1","d2","d3","d4","d5","e1","e2","e3","e4","e5","A1","A2","A3","A4","A5","B1","B2","B3","B4","B5","C1","C2","C3","C4","C5","D1","D2","D3","D4","D5","E1","E2","E3","E4","E5"};
     bool compra;
     int fila, columna;
+    float subt;
     cout<<"\n\t= = Boleteria = ="<<endl;
     do
     {
@@ -85,7 +87,6 @@ void Cine::comprarBoletos()
         else
         {
             cout<<"Seleccione los asientos: "<<endl;
-            cout<<"\t= = Asientos = =\n"<<endl;
             cout<<"   1  2  3  4  5"<<endl;
             sala[id-1].imprimir_asientos();
             for(int i=0; i<num; i++)  
@@ -258,7 +259,37 @@ void Cine::comprarBoletos()
                     y2+=11;
                     cout<<"\n";
             }
-            cout<<"Total: $"<<PRECIO_BOLETO*n_bol<<endl;
+            subt = PRECIO_BOLETO*n_bol;
+            cout<<"¿Desea factura con datos?"<<endl;
+            cout<<"1. Si"<<endl;
+            cout<<"2. No"<<endl;
+            do
+            {
+                cout<<"\nSeleccione una opción: ";
+                cin>>opc;
+                if (opc<1 || opc>2)
+                    cout<<"ERROR: Opción incorrecta"<<endl;
+            } while(opc<1 || opc>2);
+            switch(opc)
+            {
+            case 1:
+                cout<<"Ingrese los nombres del consumidor: ";
+                getline(cin>>ws, nombre);
+                cout<<"Ingrese el número de cédula del consumidor: ";
+                cin>>cedula;
+                cout<<"Ingrese el número de teléfono del consumidor: ";
+                cin>>telefono;
+                facturas[n_fac] = Factura(nombre, cedula, fecha, telefono, subt);
+                facturas[n_fac].imprimir_factura();
+                n_fac++;
+                break;
+
+            case 2:
+                facturas[n_fac] = Factura();
+                facturas[n_fac].imprimir_factura();
+                n_fac++;
+                break;
+            }
             Boleto::num_boleto=1;
         }
     } while(num<0);

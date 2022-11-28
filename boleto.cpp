@@ -43,14 +43,14 @@ void dibujarCuadro(int x1,int y1,int x2,int y2)
 
     for (i=x1;i<x2;i++)
     {
-        gotoxy(i,y1); cout << "═"; //linea horizontal superior
-        gotoxy(i,y2); cout << "═"; //linea horizontal inferior
+        gotoxy(i,y1); cout << "═";
+        gotoxy(i,y2); cout << "═";
     }
 
     for (i=y1;i<y2;i++)
     {
-        gotoxy(x1,i); cout <<"║"; //linea vertical izquierda
-        gotoxy(x2,i); cout <<"║"; //linea vertical derecha
+        gotoxy(x1,i); cout <<"║";
+        gotoxy(x2,i); cout <<"║";
     }
 
     gotoxy(x1,y1); cout<< "╔";
